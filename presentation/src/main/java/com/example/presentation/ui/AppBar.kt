@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import java.time.format.TextStyle
 
 @Composable
 fun AppBar(
@@ -44,7 +45,7 @@ fun AppBar(
                 Icon(
                     painter = painterResource(id = icon1),
                     contentDescription = null,
-                    tint = Color.Black,
+                    tint = MaterialTheme.colorScheme.inversePrimary,
                     modifier = Modifier.size(24.dp)
                 )
             }

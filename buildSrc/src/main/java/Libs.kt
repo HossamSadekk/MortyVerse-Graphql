@@ -29,6 +29,10 @@ object Navigation {
     const val NavigationCompose = "androidx.navigation:navigation-compose:2.7.5"
 }
 
+object GRAPHQL {
+    const val GraphQl = "com.apollographql.apollo3:apollo-runtime:3.8.2"
+}
+
 object DI {
     const val koin_android = "io.insert-koin:koin-android:3.5.0"
     const val koin_navigation = "io.insert-koin:koin-androidx-navigation:3.5.0"
