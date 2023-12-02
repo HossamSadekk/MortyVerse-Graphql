@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.rickandmorty.navigation.MainNavigation
-import com.example.ricknmorty.theme.RICKNMORTYTheme
+import com.example.presentation.theme.RICKNMORTYTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

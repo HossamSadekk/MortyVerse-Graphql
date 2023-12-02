@@ -66,5 +66,11 @@ dependencies {
     implementation(DI.koin_navigation)
     // Graphql
     implementation(GRAPHQL.GraphQl)
+    // logger
+    implementation(Logger.Timber)
+
+    // Modules
+    implementation(project(Modules.DOMIAN))
+
 
 }

@@ -1,4 +1,4 @@
-package com.example.common
+package com.example.common.navigation
 
 object Characters {
     const val CHARACTERSGRAPH = "characters"

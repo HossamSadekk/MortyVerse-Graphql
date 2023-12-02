@@ -66,9 +66,23 @@ dependencies {
     implementation(Navigation.NavigationCompose)
     // Modules
     implementation(project(Modules.COMMON))
+    implementation(project(Modules.DOMIAN))
+    //
+    implementation(Pagination.Paging)
+    // logger
+    implementation(Logger.Timber)
+    //
+    implementation(ImageLoader.coil)
+    implementation(ImageLoader.coil_skydov)
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.0")
+
     // DI
     implementation(DI.koin_android)
     implementation(DI.koin_compose)
     implementation(DI.koin_navigation)
     implementation(DI.koin_junit4)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation(Pagination.Paging)
+    implementation(Pagination.Paging_compose)
+
 }

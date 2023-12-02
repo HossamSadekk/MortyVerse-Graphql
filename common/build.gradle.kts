@@ -35,9 +35,12 @@ android {
 dependencies {
 
     implementation(SupportLib.CoreKtx)
+    implementation(SupportLib.LifecycleRuntime)
     implementation(SupportLib.appcompat)
     implementation(SupportLib.material)
     testImplementation(TestingLib.Junit)
     testImplementation(AndroidTestingLib.EspressoCore)
+    implementation(Logger.Timber)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
 
 }

@@ -72,8 +72,11 @@ dependencies {
     // Modules dependencies
     implementation(project(Modules.PRESENTATION))
     implementation(project(Modules.COMMON))
+    implementation(project(Modules.DOMIAN))
+    implementation(project(Modules.DATA))
     // DI
     implementation(DI.koin_android)
+    implementation(DI.koin_core)
     implementation(DI.koin_compose)
     implementation(DI.koin_navigation)
     implementation(DI.koin_junit4)

@@ -4,7 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.example.common.Characters
+import com.example.common.navigation.Characters
 import com.example.presentation.characters.ui.HomeScreenUi
 
 fun NavGraphBuilder.charactersGraph(

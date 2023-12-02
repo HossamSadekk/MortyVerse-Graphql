@@ -33,11 +33,31 @@ android {
 }
 
 dependencies {
+    // core
+    implementation(SupportLib.CoreKtx)
+    implementation(SupportLib.LifecycleRuntime)
+    implementation(SupportLib.ActivityCompose)
+    implementation(platform("androidx.compose:compose-bom:2023.03.00"))
+    implementation(SupportLib.compose_ui)
+    implementation(SupportLib.compose_graphics)
+    implementation(SupportLib.compose_preview)
+    implementation(SupportLib.compose_material3)
+    // testing
+    testImplementation(TestingLib.Junit)
+    testImplementation(AndroidTestingLib.JunitExt)
+    testImplementation(AndroidTestingLib.EspressoCore)
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
+    androidTestImplementation(AndroidTestingLib.compose_junit4)
+    debugImplementation(AndroidComposeDebugLib.ComposeUiTooling)
+    debugImplementation(AndroidComposeDebugLib.UiTestManifest)
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.8.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(Pagination.Paging)
+    //
+    implementation(Logger.Timber)
+
+    // DI
+    implementation(DI.koin_android)
+    implementation(DI.koin_compose)
+    implementation(DI.koin_navigation)
+
 }
