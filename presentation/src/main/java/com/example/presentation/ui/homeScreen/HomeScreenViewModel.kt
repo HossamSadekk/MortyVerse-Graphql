@@ -25,7 +25,12 @@ class HomeScreenViewModel(private val getCharactersUseCase: GetCharactersUseCase
     override fun onTriggerEvent(eventType: HomeScreenEvent) {
         when (eventType) {
             is HomeScreenEvent.LoadCharactersList -> getCharacters()
+            is HomeScreenEvent.RefreshScreen -> refreshScreen()
         }
+    }
+
+    fun refreshScreen(){
+        getCharacters()
     }
 
     private fun getCharacters() = safeLaunch {
@@ -41,6 +46,7 @@ class HomeScreenViewModel(private val getCharactersUseCase: GetCharactersUseCase
 
     override fun handleError(exception: Throwable) {
         Timber.e("HomeScreenViewModel Exception -> $exception")
+        setState(BaseViewState.Error(exception))
     }
 
 }

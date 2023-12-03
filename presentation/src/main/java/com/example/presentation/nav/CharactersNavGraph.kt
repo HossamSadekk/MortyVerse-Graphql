@@ -17,7 +17,11 @@ fun NavGraphBuilder.charactersGraph(
         composable(
             route = Characters.CHARACTERlIST
         ) {
-            HomeScreenUi()
+            HomeScreenUi(searchScreen = {
+
+            }, navigate = {
+
+            })
         }
     }
 }

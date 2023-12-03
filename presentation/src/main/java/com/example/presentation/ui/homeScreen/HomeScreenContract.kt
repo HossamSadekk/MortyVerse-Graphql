@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.emptyFlow
 
 sealed class HomeScreenEvent {
     object LoadCharactersList : HomeScreenEvent()
+    object RefreshScreen : HomeScreenEvent()
 }
 
 data class HomeScreenViewState(

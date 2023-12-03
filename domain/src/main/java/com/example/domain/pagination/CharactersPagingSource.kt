@@ -1,5 +1,6 @@
 package com.example.domain.pagination
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.domain.model.Characters
@@ -27,6 +28,7 @@ class CharactersPagingSource(private val repository: CharacterRepository) :
             // IOException for network failures.
             return LoadResult.Error(exception)
         } catch (exception: Exception) {
+            Log.d("hossams",exception.localizedMessage.toString())
             return LoadResult.Error(exception)
         }
     }

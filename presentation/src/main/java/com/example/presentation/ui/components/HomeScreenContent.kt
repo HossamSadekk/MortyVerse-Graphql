@@ -7,14 +7,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.example.presentation.ui.components.ui.ShimmerItem
+import coil.network.HttpException
 import com.example.presentation.ui.homeScreen.HomeScreenViewModel
 import com.example.presentation.ui.homeScreen.HomeScreenViewState
+import java.io.IOException
+import androidx.compose.foundation.layout.*
 
 @Composable
 fun HomeScreenContent(
     viewModel: HomeScreenViewModel,
     uiState: HomeScreenViewState,
+    navigate: (String) -> Unit
 ) {
     val characters = uiState.charactersPagedData.collectAsLazyPagingItems()
     Log.d("hossam", characters.itemCount.toString())
@@ -25,11 +28,20 @@ fun HomeScreenContent(
                     ShimmerItem()
                 }
             }
-
+            is LoadState.Error -> {
+                val error = characters.loadState.refresh as LoadState.Error
+                val errorMessage = when (error.error) {
+                    is HttpException -> "Sorry, Something went wrong!\nTap to retry"
+                    is IOException -> "Connection failed. Tap to retry!"
+                    else -> "Failed! Tap to retry!"
+                }
+                viewModel.handleError(Exception(errorMessage))
+            }
             else -> {
                 items(count = characters.itemCount) {
                     characters[it]?.let {
-                        CharacterRow(it) {
+                        CharacterRow(it) {id ->
+                            navigate(id)
                         }
                     }
                 }
