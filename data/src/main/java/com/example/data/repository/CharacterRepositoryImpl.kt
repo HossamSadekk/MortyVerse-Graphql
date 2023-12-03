@@ -9,7 +9,7 @@ import com.example.ricknmorty.GetCharactersQuery
 
 class CharacterRepositoryImpl(private val apolloClient: ApolloClient) : CharacterRepository {
     override suspend fun getCharacters(page: Int): CharactersResponse {
-        val response = apolloClient.query(GetCharactersQuery(1)).execute()
+        val response = apolloClient.query(GetCharactersQuery(page)).execute()
         val list = response.data?.characters?.results?.toCharacterList()
         return CharactersResponse(list)
     }
