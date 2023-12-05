@@ -7,6 +7,7 @@ import androidx.navigation.navigation
 import com.example.common.navigation.Characters
 import com.example.presentation.characters.ui.HomeScreenUi
 import com.example.presentation.nav.characterDetails
+import com.example.presentation.nav.characterSearch
 
 fun NavGraphBuilder.charactersGraph(
     navHostController: NavHostController
@@ -27,5 +28,12 @@ fun NavGraphBuilder.charactersGraph(
         characterDetails(onNavigateBack = {
             navHostController.popBackStack()
         })
+
+        characterSearch(navigate = {characterId ->
+            navHostController.navigate(Characters.CHARACTERDETAILS + "/$characterId")
+        }, onBackPressed = {
+            navHostController.popBackStack()
+        })
+
     }
 }
