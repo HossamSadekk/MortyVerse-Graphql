@@ -54,6 +54,7 @@ dependencies {
     implementation(Pagination.Paging)
     //
     implementation(Logger.Timber)
+    implementation(project(Modules.COMMON))
 
     // DI
     implementation(DI.koin_android)

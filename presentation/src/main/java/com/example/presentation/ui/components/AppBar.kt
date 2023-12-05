@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.presentation.theme.DpDimensions
 import java.time.format.TextStyle
 
 @Composable
@@ -49,6 +50,44 @@ fun AppBar(
                     modifier = Modifier.size(24.dp)
                 )
             }
+        }
+    }
+}
+
+@Composable
+fun AppBarWithBackIcon(
+    title: String,
+    @DrawableRes backIcon: Int,
+    onBackClick: () -> Unit = {}
+){
+    Box(
+        modifier = Modifier.background(MaterialTheme.colorScheme.background),
+        contentAlignment = Alignment.Center,
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(
+                vertical = DpDimensions.Small
+            )
+        ) {
+
+            IconButton(onClick = onBackClick) {
+                Icon(
+                    painter = painterResource(id = backIcon),
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.inversePrimary
+                )
+            }
+
+            Text(
+                text = title,
+                style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.inversePrimary,
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = DpDimensions.Smallest),
+                textAlign = TextAlign.Start
+            )
         }
     }
 }
