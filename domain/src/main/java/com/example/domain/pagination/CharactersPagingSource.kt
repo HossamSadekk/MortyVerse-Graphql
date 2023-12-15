@@ -7,7 +7,10 @@ import com.example.domain.model.Characters
 import com.example.domain.repository.CharacterRepository
 import java.io.IOException
 
-class CharactersPagingSource(private val repository: CharacterRepository) :
+class CharactersPagingSource(
+    private val repository: CharacterRepository,
+    private val name: String? = null
+) :
     PagingSource<Int, Characters>() {
     override fun getRefreshKey(state: PagingState<Int, Characters>): Int? {
         return null
@@ -17,7 +20,7 @@ class CharactersPagingSource(private val repository: CharacterRepository) :
 
         val position = params.key ?: 1
         return try {
-            val response = repository.getCharacters(position)
+            val response = repository.getCharacters(position,name)
             val items = response.results
             LoadResult.Page(
                 data = items!!,
@@ -28,7 +31,7 @@ class CharactersPagingSource(private val repository: CharacterRepository) :
             // IOException for network failures.
             return LoadResult.Error(exception)
         } catch (exception: Exception) {
-            Log.d("hossams",exception.localizedMessage.toString())
+            Log.d("hossams", exception.localizedMessage.toString())
             return LoadResult.Error(exception)
         }
     }

@@ -20,7 +20,7 @@ fun NavGraphBuilder.charactersGraph(
             route = Characters.CHARACTERlIST
         ) {
             HomeScreenUi(searchScreen = {
-
+                navHostController.navigate(Characters.CHARACTERSEARCH)
             }, navigate = {
                 navHostController.navigate(Characters.CHARACTERDETAILS + "/$it")
             })
@@ -29,7 +29,7 @@ fun NavGraphBuilder.charactersGraph(
             navHostController.popBackStack()
         })
 
-        characterSearch(navigate = {characterId ->
+        characterSearch(navigate = { characterId ->
             navHostController.navigate(Characters.CHARACTERDETAILS + "/$characterId")
         }, onBackPressed = {
             navHostController.popBackStack()

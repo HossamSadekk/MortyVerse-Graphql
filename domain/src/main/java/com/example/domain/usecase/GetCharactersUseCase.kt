@@ -9,12 +9,12 @@ import com.example.domain.repository.CharacterRepository
 import kotlinx.coroutines.flow.Flow
 
 class GetCharactersUseCase(private val repository: CharacterRepository) {
-    operator fun invoke(): Flow<PagingData<Characters>> =
+    operator fun invoke(name: String? = null): Flow<PagingData<Characters>> =
         Pager(
             config = PagingConfig(
                 pageSize = 20 // how many items per request, this value that will be passed into "params.loadSize" when we make our request.
             ),
-            pagingSourceFactory = { CharactersPagingSource(repository) }
+            pagingSourceFactory = { CharactersPagingSource(repository,name = name) }
         ).flow
 
 }
