@@ -10,11 +10,14 @@ sealed class DataState<out T> {
     data class Error(val error: Throwable) : DataState<Nothing>()
 }
 abstract class UseCase<ReturnType> where ReturnType : Any {
+    
     protected abstract suspend fun FlowCollector<DataState<ReturnType>>.execute(parameter: String? = null)
+    
     suspend operator fun invoke(parameter: String? = null) = flow {
         execute(parameter)
     }.flowOn(Dispatchers.IO)
 }
+
 suspend fun <T : Any> apiCall(call: suspend () -> T): DataState<T> {
     return try {
         val response = call()
