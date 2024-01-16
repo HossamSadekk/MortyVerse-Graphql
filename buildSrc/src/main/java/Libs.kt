@@ -8,12 +8,10 @@ object SupportLib {
     const val compose_material3 = "androidx.compose.material3:material3"
     const val material = "com.google.android.material:material:1.8.0"
     const val appcompat = "androidx.appcompat:appcompat:1.6.1"
-
 }
 
 object TestingLib {
     const val Junit = "junit:junit:4.13.2"
-    const val Jit = "junit:junit:4.13.2"
 }
 
 object AndroidTestingLib {
