@@ -13,6 +13,7 @@ object SupportLib {
 
 object TestingLib {
     const val Junit = "junit:junit:4.13.2"
+    const val Jit = "junit:junit:4.13.2"
 }
 
 object AndroidTestingLib {
