@@ -10,10 +10,12 @@ object SupportLib {
     const val appcompat = "androidx.appcompat:appcompat:1.6.1"
 
 }
+
 object TestingLib {
     const val Junit = "junit:junit:4.13.2"
 }
-
+object anim {
+}
 object AndroidTestingLib {
     const val JunitExt = "androidx.test.ext:junit:1.1.5"
     const val EspressoCore = "androidx.test.espresso:espresso-core:3.5.1"
